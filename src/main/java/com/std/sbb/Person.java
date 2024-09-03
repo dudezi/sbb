@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-//@ToString
+@ToString
 @AllArgsConstructor
 @Getter
 @Setter
@@ -24,4 +24,6 @@ public class Person {
         this.name = name;
         this.age = age;
     }
+
+
 }

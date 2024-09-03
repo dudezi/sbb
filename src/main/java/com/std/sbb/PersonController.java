@@ -48,8 +48,27 @@ public class PersonController {
 
         if (p == null) {
             return String.format("%d번 사람이 존재하지 않습니다.", id);
+        } else {
+            people.remove(p);
+            return String.format("%d번 사람이 삭제되었습니다.", id);
         }
-        people.remove(p);
-        return String.format("%d번 사람이 삭제되었습니다.", id);
+    }
+
+    @GetMapping("/person/modify")
+    @ResponseBody
+    public String modifyPerson(@RequestParam ("id") int id, @RequestParam ("name") String name, @RequestParam ("age") int age) {
+        Person p = null;
+        for (int i = 0; i < people.size(); i++) {
+            if (people.get(i).getId() == id) {
+                p = people.get(i);
+            }
+        }
+
+        if (p == null) {
+            return String.format("%d번 사람이 존재하지 않습니다.", id);
+        } else {
+
+            return String.format("%d번 사람이 수정되었습니다.", id);
+        }
     }
 }
